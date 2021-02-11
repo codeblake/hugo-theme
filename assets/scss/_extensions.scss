@@ -1,0 +1,66 @@
+.footnote-backref, .footnote-ref {
+	color: $color-link;
+	border: none;
+	margin-left: 0.2rem;
+}
+
+.footnote-backref {
+	font-size: 1.2rem;
+}
+
+// Verbatim
+code:not(.verbatim) {
+	font-family: hack, "Roboto Mono", monospace;
+	padding: 0.2rem 0.5rem;
+}
+
+.verbatim {
+	font-family: inherit;
+	font-weight: lighter;
+}
+
+// Code blocks
+.highlight {
+	border-radius: 0.5rem;
+	margin-bottom: 1rem;
+	pre {
+		margin-bottom: 0;
+	}
+}
+
+// Pagenation
+.pagination {
+	list-style: none;
+	display: flex;
+	gap: 2rem;
+	font-size: 1.2rem;
+	justify-content: center;
+	padding: 1rem;
+	.page-link {
+		color: $foreground;
+	}
+	a:hover {
+		color: $color-link;
+	}
+}
+
+// Post
+.post {
+	p a {
+		@extend a.spring;
+	}
+
+	h1:nth-child(1) {
+		text-align: center;
+	}
+
+	h2, h3, h4, h5, h6 {
+		margin-top: 2rem;
+	}
+	blockquote {
+		margin-top: 1rem;
+	}
+	p{
+		margin-bottom: 1rem;
+	}
+}

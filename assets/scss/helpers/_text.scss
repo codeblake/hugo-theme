@@ -1,0 +1,58 @@
+.light {font-weight: $light;}
+.bold {font-weight: $bold;}
+.text-small {font-size: $small;}
+
+.cover-page {
+	@extend .center;
+	@extend .fill-height;
+	@extend .fill-width;
+	@include phone {
+		.title {
+			font-size: 8vw;
+		}
+		.subtitle {
+			font-size: 3vw;
+		}
+	}
+}
+
+// Text Types
+.title {
+	font-size: $title;
+}
+
+.subtitle {
+	@extend .light;
+	letter-spacing: 1px;
+}
+
+.info-text {
+	@extend .light;
+	font-size: $small;
+}
+
+.fade {
+	opacity: 50%;
+}
+
+.smallcaps {
+	font-variant: small-caps;
+}
+/* Font Weight
+ */
+.text-light {
+	font-weight: lighter;
+}
+.text-bold {
+	font-weight: bold;
+}
+
+/* Font Size
+ */
+.text-large {
+	font-size: $h1;
+}
+.text-small {
+	font-size: $small;
+}
+

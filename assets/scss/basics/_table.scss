@@ -1,0 +1,44 @@
+$color-line: transparentize(contrast-color($color-table), 0.3);
+table {
+	// @include shadow();
+	@include glow($color-table);
+	border: 0.5px solid $color-table;
+	border-collapse: collapse;
+	margin-top: 1rem;
+	text-align: left;
+
+	thead {
+		tr > th {
+			padding: 0.5rem;
+		}
+		tr {
+			:not(:nth-child(1)) {
+				border-left: 0.5px solid $color-line;
+			}
+			background-color: $color-table;
+			color: $color-line;
+
+		}
+	}
+	tbody {
+		td {
+			padding: 0.5rem;
+		}
+		tr {
+			// draw lines
+			:not(:nth-child(1)) {
+				border-left: 0.5px solid $color-line;
+			}
+			// color of even rows
+			&:nth-of-type(even) {
+				background: darken($midground, 3%);
+			}
+
+			&.active-row {
+				font-weight: bold;
+				color: $color-line;
+			}
+		}
+	}
+}
+

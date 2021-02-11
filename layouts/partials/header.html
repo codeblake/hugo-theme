@@ -1,0 +1,19 @@
+<nav class="nav bg-skew-1">
+	<div class="anti-skew flex">
+	<!-- Title & Description-->
+	<section class="dafe mr-2">
+		<h1 class="title mb-1"><a class="spring" href="/">{{ .Site.Title }}</a></h1>
+		{{ with .Site.Params.Subtitle -}}
+		<h6 class="subtitle">{{ . }}</h6>
+		{{- end }}
+	</section>
+	<!-- Navigation Menu -->
+	<section>
+		<ul role="list" class="links justify-center">
+			{{ range .Site.Menus.main }}
+			<li><a class="spring" href="{{ .URL }}">{{ .Name | safeHTML }}</a></li>
+			{{ end }}
+		</ul>
+	</section>
+	</div>
+</nav>

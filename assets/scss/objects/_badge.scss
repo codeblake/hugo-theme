@@ -1,0 +1,51 @@
+.badge {
+	@include border($radius: 0.2rem);
+	@include shadow();
+	background: inherit;
+	padding: 0.2rem 0.4rem;
+	font-size: 0.8rem;
+	font-weight: $light;
+	a {
+		color: inherit;
+	}
+}
+
+.badge-multi {
+	padding: 0.2rem 0;
+
+	.badge:nth-child(1) {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		&:hover {
+			// ... colour background
+		}
+	}
+
+	.badge:nth-child(2) {
+		@include color(white, rgba(0,0,0,0.4));
+		border-left: none;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		position: static;
+	}
+
+	a {
+		border: none;
+		color: inherit;
+	}
+}
+
+// Color count base on taxonomy
+.badge-multi .badge.tag-color:nth-child(2) {
+	background: transparentize($color-tag, 0.2);
+	color: contrast-color($color-tag);
+}
+
+.badge-multi .badge.category-color:nth-child(2) {
+	background: transparentize($color-category, 0.2);
+	color: contrast-color($color-category);
+}
+.badge-multi .badge.series-color:nth-child(2) {
+	background: transparentize($color-series, 0.2);
+	color: contrast-color($color-series);
+}

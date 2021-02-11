@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="center">
+<div class="cover-page bg-skew-2 bg-grey">
+	<div class="anti-skew center box">
+		<h1 class="title">DeveloperCraft</h1>
+		{{ with .Site.Params.subtitle }}
+		<h3 class="subtitle text-center mb-1">{{ . }}</h3>
+		{{ end }}
+		<h2 class="skew"><a class="spring" href="/posts">Enter</a></h2>
+	</div>
+</div>
+</div>
+{{ end }}

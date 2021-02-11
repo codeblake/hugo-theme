@@ -1,0 +1,23 @@
+.nav {
+	background: darken($background, 5%);
+	padding: 2rem;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+		gap: 1rem;
+
+	.title {
+		color: $foreground;
+		font-size: 1rem;
+	}
+	.subtitle {
+		letter-spacing: inherit;
+		font-size: 0.8rem;
+	}
+
+	.links {
+		display: inline-flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+}

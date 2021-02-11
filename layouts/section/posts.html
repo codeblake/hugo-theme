@@ -1,0 +1,61 @@
+{{ define "main" }}
+{{ $date := .Date.Format "2006-01-02" }}
+<div class="flex wrap gap-2">
+	<!-- Posts -->
+	<section class="flex-3 px-1 mx">
+		<h2 class="smallcaps mb-1 pl-1">Posts</h2>
+		<hr>
+		<ul role="list">
+			{{ range .Paginator.Pages }}
+			<li>
+				<article class="card">
+					<h1 class="title"><a class="spring" href="{{ .Permalink }}">{{ .Title }}</a></h1>
+					{{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+					<footer class="meta">
+						<span class="time-icon">
+							{{- .ReadingTime -}}
+							{{if gt (mul .ReadingTime 60) 60}} mins {{else}} min or less {{end}}
+							</span>
+						<div class="date-icon">
+							<time datetime={{ $date }}>
+								{{ .Date.Format "2" | humanize }}
+								{{ .Date.Format "Jan" }}
+								{{ .Date.Format "2006" }}
+							</time>
+						</div>
+					</footer>
+				</article>
+				<hr>
+			</li>
+			{{ end }}
+		</ul>
+		{{ template "_internal/pagination.html" . }}
+	</section>
+
+	<!-- Taxonomies -->
+	<aside class="flex row wrap flex-1 mx-1">
+		{{ range $type, $taxonomy := .Site.Taxonomies }}
+		{{ $href := (printf "/%s" $type) }}
+			<section class="mb-2">
+				<h5 class="smallcaps mb-1"><a class="spring" href="{{ $href }}">{{ humanize $type }}</a></h5>
+				<ul id="taxonomy-group" role="list">
+				{{ range $name, $items := $taxonomy }}
+					{{ $href := (printf "/%s/%s" $type $name) }}
+					<li class="badge-multi skew">
+						<span class="badge {{ singularize $type }}-color">
+							<a href="{{ $href }}" title="{{ $name }} {{singularize $type }}">
+								{{ humanize $name }}
+							</a>
+						</span>
+						{{ $text := cond (gt .Count 1) "posts" "posts" }}
+						<span class="badge {{ singularize $type }}-color"
+									title="{{ .Count }} related {{ $text }} available!">
+							{{ .Count }}</span>
+					</li>
+				{{ end }}
+				</ul>
+			</section>
+		{{ end }}
+	</aside>
+</div>
+{{ end }}

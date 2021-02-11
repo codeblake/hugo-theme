@@ -1,0 +1,78 @@
+@import "_imports.scss";
+
+// Extra imports
+@import "_extensions.scss";
+@import "snippets/_link-spring.scss";
+
+body {
+	@include color($foreground, $background);
+	font-family: inter;
+}
+
+main {
+	position: relative;
+	top: -30px;
+	max-width: 700px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+
+// Inline-flex rows for taxonomies
+#taxonomy-group {
+	@include phone() {
+		display: inline-flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+}
+
+// Taxonomy Colors -----------------------------
+.tag-color {
+	border-color: $color-tag;
+	color: $color-tag;
+	&:hover {
+		background: $color-tag;
+		a {
+			color: contrast-color($color-tag);
+		}
+	}
+}
+
+.category-color {
+	border-color: $color-category;
+	color: $color-category;
+	&:hover {
+		background: $color-category;
+		a {
+			color: contrast-color($color-category);
+		}
+	}
+}
+.series-color {
+	border-color: $color-series;
+	color: $color-series;
+	&:hover {
+		background: $color-series;
+		> a {
+			color: contrast-color($color-series);
+		}
+	}
+}
+// ---------------------------------------------
+// Reading time icon
+.time-icon::before {
+	font-family: "Font Awesome 5 Free";
+	margin-right: 0.4rem;
+	content: "\f017";
+	opacity: 0.5;
+}
+
+.date-icon::before {
+	font-family: "Font Awesome 5 Free";
+	margin-right: 0.4rem;
+	content: "\f073";
+	opacity: 0.5;
+}

@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="center">
+<!-- Taxonomy Title -->
+{{- $title := .Title -}}
+<h1 class="smallcaps mb-2">{{ humanize $title }}</h1>
+<!-- Display taxonomy items for tags, categories or series -->
+<ul class="inline-flex wrap justify-center pl-0">
+	{{- if in (slice "Tags" "Categories" "Series") .Title }}
+	{{- range $name, $_ := (index .Site.Taxonomies (lower .Title)) }}
+	<li class="flex m-1">
+		<div class="badge {{ singularize $title | lower}}-color">
+			<a href="{{ $name }}">{{- humanize $name -}} </a>
+		</div>
+	</li>
+	{{- end }}
+</ul>
+	{{- else }}
+<ul class="wrap justify-center">
+	<!-- Else get related posts for current taxonomy -->
+	{{ $taxonomyType := (index (split .RelPermalink "/") 1) }}
+	{{ range .RegularPages.RelatedTo (keyVals $taxonomyType .Title) }}
+	<li class="my-1"><a class="spring" href="{{ .Permalink }}">{{ .Title }}</a></li>
+	{{ end }}
+	{{ end }}
+</ul>
+</div>
+{{ end }}

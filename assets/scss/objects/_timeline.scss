@@ -1,0 +1,275 @@
+$primary-color: $purple;
+$primary-color-hover: scale-color($primary-color, $lightness: 32%);
+
+ul.timeline {
+	@include keep-centered();
+}
+
+/*==================================
+		TIMELINE
+==================================*/
+
+/*-- GENERAL STYLES
+		------------------------------*/
+.timeline {
+	line-height: 1.4em;
+	list-style: none;
+	margin: 0;
+	padding: 0 2rem;
+}
+
+/*----- TIMELINE ITEM -----*/
+
+.timeline-item {
+	padding-left: 40px;
+	position: relative;
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
+
+/*----- TIMELINE INFO -----*/
+
+.timeline-info {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: $foreground;
+}
+/*----- TIMELINE MARKER -----*/
+
+.timeline-marker {
+	position: absolute;
+	top: 0; bottom: 0; left: 0;
+	width: 15px;
+
+	.timeline-item:first-child &:before {
+		border-top: none;
+	}
+
+	&:before {
+		background: $primary-color;
+		border: 2px solid transparent;
+		// border-radius: 100%;
+		transform: rotate(45deg);
+		content: "";
+		display: block;
+		position: absolute;
+		top: 5px;
+		left: 0.12rem;
+		height: 0.65rem;
+		width: 0.65rem;
+		transition: background 0.3s ease-in-out,
+								border 0.3s ease-in-out;
+	}
+	&:after {
+		content: "";
+		width: 3px;
+		background: $foreground;
+		display: block;
+		position: absolute;
+		top: 22px; bottom: 0px; left: 6px;
+	}
+	.timeline-item:last-child &:after {
+		content: none;
+		transform: rotate(45deg);
+	}
+}
+.timeline-item:not(.period) .timeline-marker:before {
+	transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+	}
+.timeline-item:not(.period):hover .timeline-marker:before {
+	background: $color-link;
+	// border-radius: 100%;
+	transform: rotate(90deg);
+}
+
+.timeline-item{
+}
+
+/*----- TIMELINE CONTENT -----*/
+
+.timeline-content {
+	padding-bottom: 1rem;
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/*----- TIMELINE PERIOD -----*/
+
+
+.period {
+	padding: 0;
+	.timeline-info {
+		display: none;
+	}
+	.timeline-marker {
+		&:before {
+			background: transparent;
+			content: "";
+			width: 13px;
+			height: auto;
+			border: none;
+			left: 1px;
+			border-radius: 0;
+			top: 0;
+			bottom: 30px;
+			position: absolute;
+			border-top: 3px solid #CCD5DB;
+			border-bottom: 3px solid #CCD5DB;
+		transform: rotate(360deg);
+		}
+		&:after {
+			content: "";
+			height: 32px;
+			top: auto;
+		}
+	}
+	.timeline-content {
+		padding: 40px 0 70px;
+	}
+	// YEAR
+	.timeline-title {
+		font-size: $h3;
+		// color: $primary-color;
+		margin: 0;
+	}
+}
+
+// Article Title
+.timeline-title:not(.title) {
+		@extend a.spring;
+		display: inline-flex;
+		height: 1.6rem;
+		margin: 0 0 1em 0;
+		height: 100%;
+		word-wrap: wrap;
+}
+.timeline-description {
+	color: black;
+	margin: 0;
+	font-weight: 100;
+}
+/*----------------------------------------------
+				MOD: TIMELINE SPLIT
+		----------------------------------------------*/
+
+.timeline-split {
+	@media (min-width: 768px) {
+		.timeline {
+			display: table;
+		}
+		.timeline-item {
+			display: table-row;
+			padding: 0;
+		}
+		.timeline-info,
+		.timeline-marker,
+		.timeline-content,
+		.period .timeline-info {
+			display: table-cell;
+			vertical-align: top;
+		}
+		.timeline-marker {
+			position: relative;
+		}
+		.timeline-content {
+			padding-left: 30px;
+		}
+		.timeline-info {
+			padding-right: 30px;
+		}
+		.period .timeline-title {
+			position: relative;
+			left: -45px;
+		}
+	}
+}
+
+/*----------------------------------------------
+				MOD: TIMELINE CENTERED
+		----------------------------------------------*/
+
+.timeline-centered {
+	@extend .timeline-split;
+	@media (min-width: 992px) {
+		&,
+		.timeline-item,
+		.timeline-info,
+		.timeline-marker,
+		.timeline-content {
+			display: block;
+			margin: 0;
+			padding: 0;
+		}
+		.timeline-item {
+			padding-bottom: 40px;
+			overflow: hidden;
+		}
+		.timeline-marker {
+			position: absolute;
+			left: 50%;
+			margin-left: -7.5px;
+		}
+		.timeline-info,
+		.timeline-content {
+			width: 50%;
+		}
+		> .timeline-item:nth-child(odd) .timeline-info {
+			float: left;
+			text-align: right;
+			padding-right: 30px;
+		}
+		> .timeline-item:nth-child(odd) .timeline-content {
+			float: right;
+			text-align: left;
+			padding-left: 30px;
+		}    
+		> .timeline-item:nth-child(even) .timeline-info {
+			float: right;
+			text-align: left;
+			padding-left: 30px;
+		}
+		> .timeline-item:nth-child(even) .timeline-content {
+			float: left;
+			text-align: right;
+			padding-right: 30px;
+		}
+		> .timeline-item.period .timeline-content {
+			float: none;
+			padding: 0;
+			width: 100%;
+			text-align: center;
+		}
+		.timeline-item.period {
+			padding: 50px 0 90px;
+		}
+		.period .timeline-marker:after {
+			height: 30px;
+			bottom: 0;
+			top: auto;
+		}
+		.period .timeline-title {
+			left: auto;
+		}
+	}
+}
+
+/*----------------------------------------------
+				MOD: MARKER OUTLINE
+		----------------------------------------------*/
+
+.marker-outline {
+	.timeline-marker {
+		&:before {
+			background: transparent;
+			border-color: $primary-color;
+		}
+	}
+	.timeline-item:hover .timeline-marker:before {
+		background: $primary-color;
+	}
+}

@@ -1,0 +1,40 @@
+.bg-skew-1 {
+	$deg: -9deg;
+	transform: skew(0deg, $deg);
+	height: 250px;
+	position: relative;
+	top: -110px;
+
+	.anti-skew {
+		transform: skew(0deg, -$deg);
+		position: relative;
+		top: 110px;
+	}
+}
+
+.bg-skew-2 {
+	$deg: -37deg;
+	transform: skew(0deg, -$deg);
+	height: 280px;
+	position: relative;
+	top: -380px;
+
+	.anti-skew {
+		transform: skew(0deg, $deg);
+		position: relative;
+		top: 380px;
+	}
+}
+
+.skew {
+	transform: skew(-10deg, 0deg);
+}
+
+.shadow {
+	@include shadow();
+}
+
+.text-80s {
+	color: darken($cyan, 10%);
+	text-shadow: 4px 4px darken($purple, 50%);;
+}

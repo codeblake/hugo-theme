@@ -1,0 +1,11 @@
+// Add symbols to headings
+$sym: "";
+.post {
+	@for $i from 2 through 6 {
+		$sym: $sym + "#";
+		h#{$i}:before {
+			content: $sym;
+			margin-right: 0.5rem;
+		}
+	}
+}

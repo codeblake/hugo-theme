@@ -1,0 +1,36 @@
+.card {
+	// @include border($radius: 4px);
+	// @include shadow();
+	margin-bottom: 1rem;
+	padding: 9px;
+	max-width: 500px;
+	height: 100%;
+
+	.title, .description {
+		margin: 0 0 10px 0;
+	}
+	.title {
+		font-size: 1rem;
+	}
+	.description {
+		font-size: 0.9rem;
+	}
+	.meta {
+		@extend .light;
+		font-size: 0.7rem;
+		display: flex;
+		justify-content: space-between;
+		font-variant: small-caps;
+		opacity: 0.5;
+	}
+
+	footer {
+		margin-top: auto;
+	}
+
+	&:hover {
+		border-color: transparentize($color-link, 0.5);
+	}
+}
+
+

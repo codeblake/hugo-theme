@@ -1,0 +1,46 @@
+{{ define "main" }}
+
+<header>
+	<h1 class="title">{{ .Page.Title }}</h1>
+</header>
+
+<div>
+	<div>
+		<div>
+			<ul class="timeline">
+				<!-- Years -->
+				{{ range .Site.RegularPages.GroupByDate "2006" }}
+				<!-- YEAR SECTION -->
+				<li class="timeline-item period">
+					<!-- <div class="timeline-info"></div> -->
+					<div class="timeline-marker"></div>
+					<div class="timeline-content">
+						<h2 class="timeline-title title">{{ .Key }}</h2>
+					</div>
+				</li>
+
+				<!-- Articles -->
+				{{ range .Pages }}
+				<!-- ENTRY -->
+				<li class="display-table timeline-item">
+					<div class="timeline-info">
+						{{ .Date.Format "Jan" }}
+						{{ .Date.Format "2" | humanize }}
+					</div>
+					<div class="timeline-marker"></div>
+					<div class="inline-block timeline-content">
+						<h3 class="timeline-title">
+							<a href="{{ .Permalink }}"> {{ .Title}} </a>
+						</h3>
+					</div>
+				</li>
+				{{ end }}
+				{{ end }}
+
+			</ul>
+		</div>
+	</div>
+</div>
+
+{{ end }}
+

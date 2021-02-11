@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article class="post px-1">
+	<header>
+		<h1 class="post-title mt-0">{{ humanize .Title }}</h1>
+		{{ partial "post-metadata.html" . }}
+	</header>
+	<section>
+		{{ .Content }}
+	</section>
+</article>
+{{ end }}

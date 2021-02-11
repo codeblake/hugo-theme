@@ -1,0 +1,58 @@
+ul, ol {
+	margin: 0;
+	// padding-left: 2rem;
+	p {
+		margin: 0.5rem 0;
+	}
+	li {
+		line-height: normal;
+	}
+}
+
+#taxonomy-list ul {
+	padding-left: 0;
+}
+
+#posts-list li, #page-taxonomies, #nav-links li {
+	list-style: none;
+}
+
+.unchecked, .checked, .indeterminate {
+	position: relative;
+	left: -0.5rem;
+	padding-left: 8px;
+	&::marker {
+		font-family: "Font Awesome 5 Free";
+		font-size: 0.9rem;
+	}
+}
+
+.unchecked::marker {
+	color: $foreground;
+	content: "\f0c8";
+}
+
+.checked::marker {
+	color: $green;
+	content: "\f14a";
+}
+
+.indeterminate::marker {
+	color: $yellow;
+	content: "\f146";
+}
+
+code.statistic {
+	padding-right: 0;
+	color: $cyan;
+	font-weight: lighter;
+	font-size: 0.9rem;
+}
+
+// Datetime
+#post-metadata time::before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f073";
+	margin-right: 0.5rem;
+	font-size: 0.9rem;
+}

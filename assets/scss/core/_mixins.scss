@@ -1,0 +1,37 @@
+@mixin border($size: 1px, $style: solid, $color: black, $radius: 0) {
+	border: $size $style $color;
+	border-radius: $radius
+}
+
+@mixin color($foreground: inherit, $background: inherit) {
+	color: $foreground;
+	background-color: $background;
+}
+
+@mixin glow($color: $foreground) {
+	box-shadow: 0 1px 5px transparentize($color, 0.6), 0 3px 4px $background;
+}
+
+@mixin shadow() {
+	box-shadow: 0 8px 10px -6px black;
+}
+
+@mixin keep-centered($max-width: 1080px) {
+	padding: 0 auto;
+	max-width: $max-width;
+}
+
+@mixin push-down-footer() {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	#main-footer {
+		margin-top: auto;
+	}
+}
+
+@mixin phone($width: 770px) {
+	@media only screen and (max-width: $width) {
+		@content;
+	}
+}

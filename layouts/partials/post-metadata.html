@@ -1,0 +1,21 @@
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+<div class="text-center light text-small mt-2 mb-2">
+	<ul id="page-taxonomies" class="flex row wrap gap-1 justify-center p-0">
+		{{ range $key, $value := .Params }}
+			{{- if in (slice "tags" "categories" "series") $key }}
+				{{ range $value }}
+				<li class="skew badge {{ singularize $key }}-color">
+						<a href="/{{ $key }}/{{ urlize . }}">{{ . }}</a>
+				</li>
+				{{ end }}
+			{{ end }}
+		{{ end }}
+	</ul>
+	<div class="date-icon my-1">
+		<time datetime="{{ $dateTime }}">
+			{{ .PublishDate.Format "2" | humanize }}
+			{{ .PublishDate.Format "Jan 2006" }}
+		</time>
+	</div>
+</div>
+<hr class="mb-2"/> 
