@@ -5,7 +5,7 @@
 			{{- if in (slice "tags" "categories" "series") $key }}
 				{{ range $value }}
 				<li class="skew badge {{ singularize $key }}-color">
-						<a href="/{{ $key }}/{{ urlize . }}">{{ . }}</a>
+						<a href="/{{ $key }}/{{ urlize . }}">{{ humanize . }}</a>
 				</li>
 				{{ end }}
 			{{ end }}

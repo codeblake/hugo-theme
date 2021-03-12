@@ -1,6 +1,4 @@
 .card {
-	// @include border($radius: 4px);
-	// @include shadow();
 	margin-bottom: 1rem;
 	padding: 9px;
 	max-width: 500px;
@@ -14,6 +12,7 @@
 	}
 	.description {
 		font-size: 0.9rem;
+		// min-width: 400px;
 	}
 	.meta {
 		@extend .light;

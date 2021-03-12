@@ -23,10 +23,29 @@ code:not(.verbatim) {
 .highlight {
 	border-radius: 0.5rem;
 	margin-bottom: 1rem;
-	pre {
-		margin-bottom: 0;
+	div {
+		background: none !important;
+		border: none !important;
+		padding: 0;
+		table {
+			box-shadow: none !important;
+		}
 	}
 }
+// source block title
+figure {
+	figcaption {
+		color: $red !important;
+		position: relative;
+	}
+}
+
+// raw output formatting
+.results-block {
+	white-space: break-spaces;
+}
+
+
 
 // Pagenation
 .pagination {
@@ -54,7 +73,7 @@ code:not(.verbatim) {
 		text-align: center;
 	}
 
-	h2, h3, h4, h5, h6 {
+	h2 {
 		margin-top: 2rem;
 	}
 	blockquote {

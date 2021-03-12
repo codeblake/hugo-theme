@@ -1,6 +1,6 @@
 $color-line: transparentize(contrast-color($color-table), 0.3);
 table {
-	// @include shadow();
+	// @include box-shadow();
 	@include glow($color-table);
 	border: 0.5px solid $color-table;
 	border-collapse: collapse;

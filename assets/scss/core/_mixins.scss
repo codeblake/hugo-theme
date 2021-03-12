@@ -12,8 +12,12 @@
 	box-shadow: 0 1px 5px transparentize($color, 0.6), 0 3px 4px $background;
 }
 
-@mixin shadow() {
+@mixin box-shadow() {
 	box-shadow: 0 8px 10px -6px black;
+}
+
+@mixin text-shadow($x: 0, $y: 4px, $blur: 4px, $color: black) {
+	text-shadow: $x $y $blur $color;
 }
 
 @mixin keep-centered($max-width: 1080px) {

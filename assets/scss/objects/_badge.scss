@@ -1,12 +1,13 @@
 .badge {
 	@include border($radius: 0.2rem);
-	@include shadow();
+	@include box-shadow();
 	background: inherit;
 	padding: 0.2rem 0.4rem;
 	font-size: 0.8rem;
 	font-weight: $light;
 	a {
 		color: inherit;
+		white-space: nowrap;
 	}
 }
 
@@ -16,9 +17,6 @@
 	.badge:nth-child(1) {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
-		&:hover {
-			// ... colour background
-		}
 	}
 
 	.badge:nth-child(2) {

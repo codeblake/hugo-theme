@@ -1,16 +1,28 @@
 pre {
-	@include shadow();
-	code {
-		font-size: $small;
+	&:not(.example) {
+		@include box-shadow();
 	}
-	background: $black2 !important;
-	border-radius: 4px;
-	margin-bottom: 1rem;
+	// background: $black2 !important;
+	border-radius: 5px;
+	// margin-bottom: 1rem;
 	padding: 1rem;
 	overflow: scroll;
 	border: 1px solid black;
+
+	code {
+		font-size: $small;
+		padding: 0 !important;
+	}
+}
+
+// output example
+pre.example{
+	background: $midground;
+	border-color: $foreground;
 }
 
 p code  {
-	color: $green;
+	color: $color-code;
+	font-family: hack, monospace !important;
 }
+

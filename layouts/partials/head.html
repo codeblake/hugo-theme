@@ -5,9 +5,13 @@
 	<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }} ">
 	<link rel="canonical" href="{{ .Permalink }}" />
 
-	<!-- Stylesheet -->
-	{{ $style := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
-	<link rel="stylesheet" href="{{ $style.Permalink }}">
+	<!-- Style sheet -->
+	{{ $options := (dict "targetPath" "style.css" "outputstyle" "compressed") }}
+	{{ $style := resources.Get "scss/main.scss" | toCSS $options | fingerprint }}
+
+	<link rel="stylesheet"
+				href="{{ $style.Permalink }}"
+				{{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
 
 	<!-- Title -->
 	{{ $title := print .Site.Title " | " .Title }}

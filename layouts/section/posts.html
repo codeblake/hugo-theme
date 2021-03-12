@@ -2,15 +2,16 @@
 {{ $date := .Date.Format "2006-01-02" }}
 <div class="flex wrap gap-2">
 	<!-- Posts -->
-	<section class="flex-3 px-1 mx">
-		<h2 class="smallcaps mb-1 pl-1">Posts</h2>
+	<section class="flex-3 px-1 mx min-width-60p">
+		<!-- <h2 class="smallcaps mb-1 pl-1">Posts</h2> -->
 		<hr>
 		<ul role="list">
 			{{ range .Paginator.Pages }}
 			<li>
 				<article class="card">
 					<h1 class="title"><a class="spring" href="{{ .Permalink }}">{{ .Title }}</a></h1>
-					{{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+					{{ with .Description }}<p class="description my-1">{{ . }}</p>{{ end }}
+
 					<footer class="meta">
 						<span class="time-icon">
 							{{- .ReadingTime -}}
@@ -33,15 +34,15 @@
 	</section>
 
 	<!-- Taxonomies -->
-	<aside class="flex row wrap flex-1 mx-1">
+	<aside class="flex column wrap flex-1 mx-1">
 		{{ range $type, $taxonomy := .Site.Taxonomies }}
 		{{ $href := (printf "/%s" $type) }}
 			<section class="mb-2">
-				<h5 class="smallcaps mb-1"><a class="spring" href="{{ $href }}">{{ humanize $type }}</a></h5>
-				<ul id="taxonomy-group" role="list">
+				<h6 class="smallcaps mb-1"><a class="spring" href="{{ $href }}">{{ humanize $type }}</a></h6>
+				<ul id="taxonomy-group" class="flex column mr-1" role="list">
 				{{ range $name, $items := $taxonomy }}
 					{{ $href := (printf "/%s/%s" $type $name) }}
-					<li class="badge-multi skew">
+					<li class="badge-multi skew inline-flex">
 						<span class="badge {{ singularize $type }}-color">
 							<a href="{{ $href }}" title="{{ $name }} {{singularize $type }}">
 								{{ humanize $name }}

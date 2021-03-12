@@ -30,9 +30,8 @@
 	transform: skew(-10deg, 0deg);
 }
 
-.shadow {
-	@include shadow();
-}
+.box-shadow { @include box-shadow(); }
+.text-shadow { @include text-shadow(); }
 
 .text-80s {
 	color: darken($cyan, 10%);
