@@ -16,6 +16,16 @@
 			{{ .PublishDate.Format "2" | humanize }}
 			{{ .PublishDate.Format "January 2006" }}
 		</time>
-	</div>
+    <span>&mdash;</span>
+    <span class="time-icon">
+        {{- .ReadingTime -}}
+        {{if gt (mul .ReadingTime 60) 60}} mins {{else}} min or less {{end}}
+    </span>
+    <span>&mdash;</span>
+    <span>
+    <i class="opacity fas fa-feather-alt"></i>
+    {{ .Params.Author }}
+    </span>
+  </div>
 </div>
 <hr class="mb-2"/> 

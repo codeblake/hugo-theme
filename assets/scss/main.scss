@@ -61,18 +61,30 @@ main {
 		}
 	}
 }
+
+.opacity {
+	opacity: 0.5;
+}
+
 // ---------------------------------------------
 // Reading time icon
 .time-icon::before {
 	font-family: "Font Awesome 5 Free";
-	margin-right: 0.4rem;
+	margin-right: 0.3rem;
 	content: "\f017";
 	opacity: 0.5;
 }
 
 .date-icon::before {
 	font-family: "Font Awesome 5 Free";
-	margin-right: 0.4rem;
+	margin-right: 0.1rem;
 	content: "\f073";
+	opacity: 0.5;
+}
+
+.author-icon::before {
+	font-family: "Font Awesome 5 Free";
+	margin-right: 0.4rem;
+  content: "\f56b";
 	opacity: 0.5;
 }
