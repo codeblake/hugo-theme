@@ -1,85 +1,112 @@
 .footnote-backref, .footnote-ref {
-	color: $color-link;
-	border: none;
-	margin-left: 0.2rem;
+  color: $color-link;
+  border: none;
+  margin-left: 0.2rem;
+}
+
+.footnote-reference {
+  a {
+    text-decoration: none;
+  }
 }
 
 .footnote-backref {
-	font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
-// Verbatim
 code:not(.verbatim) {
-	font-family: hack, "Roboto Mono", monospace;
-	padding: 0.2rem 0.5rem;
+  font-family: hack, "Roboto Mono", monospace;
+  // padding: 0.2rem 0.5rem;
 }
 
+// ~code~
+:not(pre)>code:not(.verbatim) {
+  // as kbd
+  // @extend kbd
+  // color: #8be9fd;
+  color: $color-code;
+  background: #282a36;
+  border: 1px solid black;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: $small;
+  // color: darken($foreground, 10%);
+}
+
+// Verbatim =verbatim=
 .verbatim {
-	font-family: inherit;
-	font-weight: lighter;
+  font-family: hack, monospace;
+  font-weight: lighter;
+  color: $color-verbatim;
 }
 
 // Code blocks
 .highlight {
-	border-radius: 0.5rem;
-	margin-bottom: 1rem;
-	div {
-		background: none !important;
-		border: none !important;
-		padding: 0;
-		table {
-			box-shadow: none !important;
-		}
-	}
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  div {
+    background: none !important;
+    border: none !important;
+    padding: 0;
+    table {
+      box-shadow: none !important;
+    }
+  }
 }
 // source block title
 figure {
-	figcaption {
-		color: $red !important;
-		position: relative;
-	}
+  figcaption {
+    color: $color-table !important;
+    position: relative;
+    font-family: monospace;
+    margin: 10px 0;
+  }
 }
 
 // raw output formatting
 .results-block {
-	white-space: break-spaces;
+  white-space: break-spaces;
 }
 
 
 
 // Pagenation
 .pagination {
-	list-style: none;
-	display: flex;
-	gap: 2rem;
-	font-size: 1.2rem;
-	justify-content: center;
-	padding: 1rem;
-	.page-link {
-		color: $foreground;
-	}
-	a:hover {
-		color: $color-link;
-	}
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+  justify-content: center;
+  padding: 1rem;
+  .page-link {
+    color: $foreground;
+  }
+  a:hover {
+    color: $color-link;
+  }
 }
 
 // Post
 .post {
-	p a {
-		@extend a.spring;
-	}
 
-	h1:nth-child(1) {
-		text-align: center;
-	}
+  // p a {
+  //   @extend a.spring;
+  //   &:hover {
+  //     color: $pink;
+  //   }
+  // }
 
-	h2 {
-		margin-top: 2rem;
-	}
-	blockquote {
-		margin-top: 1rem;
-	}
-	p{
-		margin-bottom: 1rem;
-	}
+  h1:nth-child(1) {
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 2rem;
+  }
+  blockquote {
+    margin-top: 1rem;
+  }
+  p{
+    margin-bottom: 1rem;
+  }
 }
