@@ -141,7 +141,7 @@ ul.timeline {
 
 // Article Title
 .timeline-title:not(.title) {
-		@extend a.spring;
+		// @extend a.spring;
 		display: inline-flex;
 		height: 1.6rem;
 		margin: 0 0 1em 0;

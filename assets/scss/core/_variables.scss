@@ -2,16 +2,19 @@
 // Colours
 // -----------------------------
 $black:	 hsl(206, 6%, 15%);
-$black2:	 darken($black, 5%);
-$grey:		 hsl(200, 6%, 20%);
+$black2: darken($black, 5%);
+$grey:	 hsl(200, 6%, 20%);
 $white:	 hsl(0, 0%, 75%);
-$red:		 hsl(0, 100%, 71%);
-$pink:		 hsl(340, 80%, 80%);
-$green:	 hsl(160, 70%, 50%);
-$blue:		 hsl(200, 60%, 60%);
-$cyan:		 hsl(175, 50%, 60%);
-$yellow:	 hsl(45, 50%, 70%);
-$purple:	 hsl(270, 50%, 80%);
+$red:		 hsl(0, 80%, 70%);
+$pink:	 hsl(340, 50%, 80%);
+$green:	 hsl(160, 50%, 50%);
+$blue:	 hsl(200, 50%, 60%);
+$cyan:	 hsl(175, 50%, 60%);
+$yellow: hsl(45, 50%, 70%);
+$purple: hsl(270, 50%, 80%);
+
+$keyword: #8be9fd;
+
 
 // Dark Theme
 $background: $black;
@@ -28,8 +31,9 @@ $color-tag: $blue;
 $color-category: $yellow;
 $color-series: $purple;
 $color-link: $cyan;
-$color-table: $foreground;
-$color-code: $green;
+$color-table: $white;
+$color-code: $keyword;
+$color-verbatim: $yellow;
 
 // -----------------------------
 // Size

@@ -1,13 +1,13 @@
 kbd{
 	@include color($background, $foreground);
 	border-top: 1px solid lighten($foreground, 10%);
-	border-radius: 3px;
-	font-family: hack, monospace;
+	border-radius: 2px;
+	font-family: inter, hack, monospace;
 	font-size: 0.8rem;
 	box-shadow: 0px 2px 0px 0 $foreground,
 							-1px 2px 0px 2px darken($foreground, 30%),
 							-1px 4px 2px 2px darken($foreground, 60%),
 							-1px 1px 3px 0px darken($foreground, 30%) inset;
-	margin: 4px;
-	padding: 1px 5px;
+	margin: 0 4px;
+	padding: 0px 06px;
 }

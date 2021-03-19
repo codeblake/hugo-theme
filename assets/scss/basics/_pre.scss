@@ -1,13 +1,17 @@
 pre {
-	&:not(.example) {
-		@include box-shadow();
+
+  // Source Code Blocks
+  &:not(.example) {
+    @include box-shadow();
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 	}
-	// background: $black2 !important;
-	border-radius: 5px;
-	// margin-bottom: 1rem;
+
+  margin-top: 0;
 	padding: 1rem;
 	overflow: scroll;
-	border: 1px solid black;
+	border: .5px solid black;
 
 	code {
 		font-size: $small;
@@ -15,14 +19,55 @@ pre {
 	}
 }
 
-// output example
-pre.example{
-	background: $midground;
-	border-color: $foreground;
+// Source block type header
+.src:before {
+  &.src-sh, &.src-shell { content: "Shell"; }
+  &.src-python { content: "Python"; }
+  &.src-emacs-lisp { content: "Emacs Lisp"; }
+  &.src-java { content: "Java"; }
+  &.src-cpp { content: "C++"; }
+
+  content: attr(class);
+  color: darken($foreground,40%);
+  background: darken(#282a36,5%);
+	border: .5px solid black;
+  border-bottom: none;
+  padding: 0 10px;
+  font-size: $small;
+
+  // Border
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+  display: flex;
+  flex-direction: row-reverse;
+
 }
 
-p code  {
-	color: $color-code;
-	font-family: hack, monospace !important;
+
+// Output/Example
+pre.example{
+	background: darken($midground, 10%);
+	color: darken($foreground, 10%);
+	border-color: lighten($midground, 20%);
 }
+
+$color-results: transparentize($foreground,0.5);
+div.src + pre.example {
+  border-color: $color-results;
+  &:before {
+    // Example block after source block
+    content: "OUTPUT:\A";
+    color: $color-results;
+  }
+}
+
+// p code  {
+//   &:not(::before){
+// 	color: $color-code;
+//   background: darken(transparentize($color-code,.8), 40%);
+//   padding: 2px 5px;
+// 	font-family: hack, monospace !important;
+//   }
+// }
 

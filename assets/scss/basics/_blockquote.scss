@@ -1,9 +1,11 @@
+$col: $yellow;
 blockquote {
-	background: $midground;
-	border-left: 5px solid $foreground;
+	// background: $midground;
+	background: transparentize($col, .9);
+	border-left: 5px solid $col;
 	margin: 2rem 0;
 	padding: 0.5rem 1.5rem;
-	border-radius: 5px;
+	// border-radius: 5px;
 	p {
 		margin: 0.5rem 0 !important;
 	}

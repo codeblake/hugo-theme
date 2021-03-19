@@ -4,7 +4,7 @@ table {
 	@include glow($color-table);
 	border: 0.5px solid $color-table;
 	border-collapse: collapse;
-	margin-top: 1rem;
+	margin: 1rem 0;
 	text-align: left;
 
 	thead {

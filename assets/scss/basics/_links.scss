@@ -1,9 +1,13 @@
 a {
 	color: $color-link;
 	text-decoration-style: solid;
-	text-decoration-thickness: .2rem;
-	text-decoration: none;
+	text-decoration-thickness: .1rem;
 	&:hover {
-		color: lighten($color-link, 10%);
+		color: $foreground;
 	}
+}
+
+// badge links
+.badge  a{
+	text-decoration: none;
 }
