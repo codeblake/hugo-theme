@@ -3,9 +3,13 @@
 	<header>
 		<h1 class="text-shadow mt-0">{{ humanize .Title }}</h1>
 		{{ partial "post-metadata.html" . }}
-	</header>
+  </header>
 	<section>
 		{{ .Content }}
 	</section>
+  <footer class="info-text center mt-3">
+      Comments? Contact me at
+      <a href="mailto:{{ .Site.Params.email }}?subject=COMMENT: {{ .Title }}">{{ .Site.Params.email}}</a>  
+  </footer>
 </article>
 {{ end }}
