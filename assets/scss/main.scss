@@ -88,3 +88,13 @@ main {
   content: "\f56b";
 	opacity: 0.5;
 }
+
+// TAGS ---
+.tags {
+  font-variant-caps: all-small-caps;
+  border-radius: 5px;
+  padding: 0 1rem;
+  background: $yellow;
+  color: $background;
+  font-size: $small;
+}
