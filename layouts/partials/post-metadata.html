@@ -1,31 +1,31 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 <div class="text-center light text-small mt-2 mb-2">
-	<ul id="page-taxonomies" class="flex row wrap gap-1 justify-center p-0">
-		{{ range $key, $value := .Params }}
-			{{- if in (slice "tags" "categories" "series") $key }}
-				{{ range $value }}
-				<li class="skew badge {{ singularize $key }}-color">
-						<a href="/{{ $key }}/{{ urlize . }}">{{ humanize . }}</a>
-				</li>
-				{{ end }}
-			{{ end }}
-		{{ end }}
-	</ul>
-	<div class="date-icon my-1">
-		<time datetime="{{ $dateTime }}">
-			{{ .PublishDate.Format "2" | humanize }}
-			{{ .PublishDate.Format "January 2006" }}
-		</time>
-    <span>&mdash;</span>
-    <span class="time-icon">
-        {{- .ReadingTime -}}
-        {{if gt (mul .ReadingTime 60) 60}} mins {{else}} min or less {{end}}
-    </span>
-    <span>&mdash;</span>
-    <span>
-    <i class="opacity fas fa-feather-alt"></i>
-    {{ .Params.Author }}
-    </span>
-  </div>
+    <ul id="page-taxonomies" class="flex row wrap gap-1 justify-center p-0">
+        {{ range $key, $value := .Params }}
+        {{- if in (slice "tags" "categories" "series") $key }}
+        {{ range $value }}
+        <li class="skew badge {{ singularize $key }}-color">
+            <a href="/{{ $key }}/{{ urlize . }}">{{ humanize . }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+    </ul>
+    <div class="date-icon my-1">
+        <time datetime="{{ $dateTime }}">
+            {{ .PublishDate.Format "2" | humanize }}
+            {{ .PublishDate.Format "January 2006" }}
+        </time>
+        <span>&mdash;</span>
+        <span class="time-icon">
+            {{- .ReadingTime -}}
+            {{if gt (mul .ReadingTime 60) 60}} mins {{else}} min or less {{end}}
+        </span>
+
+        {{ $author := .Site.Author.name}}
+        {{ with .Params.Author }}{{ $author = . }}{{end}}
+        <span>&mdash;</span>
+        <span><i class="opacity fas fa-feather-alt"></i> {{ $author }} </span>
+    </div>
 </div>
-<hr class="mb-2"/> 
+<hr class="mb-2"/>
